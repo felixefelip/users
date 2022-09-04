@@ -11,9 +11,9 @@ class BunnyClient
       @connected = true
     end
 
-    def push(payload, type)
+    def push(payload, model)
       connect! unless @connected
-      @fan_out.publish(payload, { app_id: 'aceleracao_dio_users', type: type })
+      @fan_out.publish(payload, { app_id: 'aceleracao_dio_users', model: model })
 
       true
     end
